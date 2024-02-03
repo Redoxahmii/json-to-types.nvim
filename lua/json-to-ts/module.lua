@@ -15,7 +15,6 @@ M.write_types = function()
     end
   end
   local text = buffer_to_string()
-  -- local prod_path = "/home/redox/.local/share/nvim/json-to-ts.nvim"
   local file_path = "./test.txt"
   local file = io.open(file_path, "w+")
   if file then

@@ -1,14 +1,11 @@
 local M = {}
 
---- [TODO: Change paths on prod]
+--- [INFO: Change types_command for local testing]
 
 M.types_output = function(file_name)
   local home = os.getenv("HOME")
-  vim.notify(file_name)
   local base_name = vim.fn.fnamemodify(file_name, ":t:r")
   local types_output_file = "./" .. base_name .. ".ts"
-
-  --- [TODO: change this path when prod]
 
   local types_command = "node"
     .. " "
@@ -21,6 +18,7 @@ M.types_output = function(file_name)
     file:read("*a")
     file:close()
     vim.api.nvim_command("edit " .. types_output_file)
+    vim.notify("Types saved at " .. file_name)
   else
     print("Error: Unable to open the output file")
   end

@@ -7,6 +7,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.keymap.set("n", "<Leader>cu", function()
       require("json-to-ts").convertTypes()
-    end, { desc = "print current text in buffer" })
+    end, { desc = "Convert JSON to TS types" })
   end,
 })
