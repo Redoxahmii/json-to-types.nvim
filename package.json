@@ -1,0 +1,19 @@
+{
+  "name": "json-to-ts.nvim",
+  "version": "1.0.0",
+  "description": "A plugin to convert JSON objects to typescript types",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Redox Ahmii",
+  "license": "ISC",
+  "dependencies": {
+    "json-to-ts": "^1.7.0"
+  }
+}
