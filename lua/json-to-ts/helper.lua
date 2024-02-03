@@ -10,11 +10,7 @@ M.types_output = function(file_name)
 
   --- [TODO: change this path when prod]
 
-  local types_command = "node"
-    .. " "
-    .. home
-    .. "/.local/share/nvim/lazy/json-to-ts.nvim/index.js > "
-    .. types_output_file
+  local types_command = "node" .. " " .. home .. "/Code/Neovim/json-to-ts.nvim/index.js > " .. types_output_file
   os.execute(types_command)
   local file = io.open(types_output_file, "r")
   if file then
