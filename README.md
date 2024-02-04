@@ -15,9 +15,13 @@ Install the plugin with your preferred package manager:
 ```lua
 {
     "Redoxahmii/json-to-ts.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
+    keys = {
+      {
+        "<leader>cu",
+        "<CMD>ConvertJSONtoTS<CR>",
+        desc = "Convert JSON to TS",
+      },
+    },
   }
 ```
 
