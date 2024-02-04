@@ -12,6 +12,7 @@ M.write_types = function()
       return table.concat(content, "\n")
     else
       vim.notify("File is not json")
+      return
     end
   end
   local text = buffer_to_string()
