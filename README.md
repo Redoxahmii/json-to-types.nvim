@@ -27,8 +27,8 @@ Install the plugin with your preferred package manager:
 
 ## 🚀 Usage
 
-- It currently imports with a default keymap of `<leader>cu` to convert the JSON to TypeScript types.
-- It also has a command `:ConvertJSONtoTS` that does the same thing.
+- Use the command `:ConvertJSONtoTS` to convert the JSON to TypeScript types.
+- You can also make a keybinding for the command by referring to the method provide above.
 
 ## 👷 Features to come
 
