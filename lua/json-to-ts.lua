@@ -20,5 +20,8 @@ end
 M.convertTypes = function()
   return module.write_types()
 end
+M.convertTypesBuffer = function()
+  return module.write_types_buffer()
+end
 
 return M
