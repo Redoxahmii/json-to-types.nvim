@@ -15,20 +15,23 @@ Install the plugin with your preferred package manager:
 ```lua
 {
     "Redoxahmii/json-to-ts.nvim",
+    build = "sh install.sh npm",
     keys = {
       {
         "<leader>cu",
         "<CMD>ConvertJSONtoTS<CR>",
         desc = "Convert JSON to TS",
       },
-    {
+      {
         "<leader>ct",
         "<CMD>ConvertJSONtoTSBuffer<CR>",
         desc = "Convert JSON to TS in buffer",
-      }
+      },
     },
   }
 ```
+
+- Provide your installer in the build command.Instead of `npm` you can pass whatever you are using such as `yarn`.
 
 ## 🚀 Usage
 
