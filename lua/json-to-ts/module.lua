@@ -16,6 +16,9 @@ M.write_types = function()
     end
   end
   local text = buffer_to_string()
+  if not text then
+    return
+  end
   local file_path = "./test.txt"
   local file = io.open(file_path, "w+")
   if file then
@@ -41,6 +44,9 @@ M.write_types_buffer = function()
     end
   end
   local text = buffer_to_string()
+  if not text then
+    return
+  end
   local file_path = "./test.txt"
   local file = io.open(file_path, "w+")
   if file then
