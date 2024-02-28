@@ -1,11 +1,14 @@
 local helper = require("json-to-ts.helper")
+-- TODO: Remove deprecated functions
+
 ---@class CustomModule
 local M = {}
 
 M.write_types = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local file_name = vim.api.nvim_buf_get_name(bufnr)
-  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+
+  local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
   local buffer_to_string = function()
     if filetype == "json" then
       local content = vim.api.nvim_buf_get_lines(0, 0, vim.api.nvim_buf_line_count(0), false)
@@ -34,7 +37,7 @@ end
 M.write_types_buffer = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local file_name = vim.api.nvim_buf_get_name(bufnr)
-  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
   local buffer_to_string = function()
     if filetype == "json" then
       local content = vim.api.nvim_buf_get_lines(0, 0, vim.api.nvim_buf_line_count(0), false)
@@ -60,7 +63,7 @@ M.write_types_buffer = function()
       buffer_number = vim.api.nvim_get_current_buf()
 
       vim.api.nvim_buf_set_name(buffer_number, types[2])
-      vim.api.nvim_buf_set_option(buffer_number, "filetype", "typescript")
+      vim.api.nvim_set_option_value("filetype", "typescript", { buf = buffer_number })
     end
     local lines = vim.split(types[1], "\n")
     vim.api.nvim_buf_set_lines(buffer_number, 0, -1, false, lines)
