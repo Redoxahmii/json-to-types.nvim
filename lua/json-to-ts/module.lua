@@ -24,6 +24,7 @@ M.write_types = function()
   end
   local file_path = "./test.txt"
   local file = io.open(file_path, "w+")
+  vim.notify("Hello nightly")
   if file then
     file:write(text)
     file:close()
