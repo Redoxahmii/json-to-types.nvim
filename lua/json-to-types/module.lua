@@ -1,4 +1,5 @@
 local helper = require("json-to-types.helper")
+local utils = require("json-to-types.utils")
 
 ---@class CustomModule
 local M = {}
@@ -7,7 +8,7 @@ M.write_types = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local file_name = vim.api.nvim_buf_get_name(bufnr)
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-  local text = helper.buffer_to_string(filetype)
+  local text = utils.buffer_to_string(filetype)
   if not text then
     return
   end
@@ -27,7 +28,7 @@ M.write_types_buffer = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local file_name = vim.api.nvim_buf_get_name(bufnr)
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-  local text = helper.buffer_to_string(filetype)
+  local text = utils.buffer_to_string(filetype)
   if not text then
     return
   end

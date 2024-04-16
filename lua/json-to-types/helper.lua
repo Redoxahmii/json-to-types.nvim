@@ -1,32 +1,10 @@
+local utils = require("json-to-types.utils")
+
 local M = {}
-
---- [INFO: Change paths on prod]
--- PROD LINK
--- local types_command = "node"
---   .. " "
---   .. home
---   .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > "
---   .. types_output_file
---LOCAL LINK
--- local types_command = "node"
---     .. " "
---     .. home
---     .. "/Code/Neovim/json-to-types.nvim/index.js > "
---     .. types_output_file
-
-Error_message = "Provide valid JSON"
+Error_message = "Error: Provide valid JSON"
 
 M.types_output = function(file_name)
-  local home = os.getenv("HOME")
-  local base_name = vim.fn.fnamemodify(file_name, ":t:r")
-  local types_output_file = "./" .. "Types-" .. base_name .. ".ts"
-  local types_command = "node"
-    .. " "
-    .. home
-    .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > "
-    .. types_output_file
-  os.execute(types_command)
-
+  local types_output_file = utils.executeTypesCommand(file_name)
   local file = io.open(types_output_file, "r")
   if file then
     local types = file:read("*a")
@@ -46,15 +24,7 @@ M.types_output = function(file_name)
 end
 
 M.types_output_buffer = function(file_name)
-  local home = os.getenv("HOME")
-  local base_name = vim.fn.fnamemodify(file_name, ":t:r")
-  local types_output_file = "./" .. "Types-" .. base_name .. ".ts"
-  local types_command = "node"
-    .. " "
-    .. home
-    .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > "
-    .. types_output_file
-  os.execute(types_command)
+  local types_output_file = utils.executeTypesCommand(file_name)
   local file = io.open(types_output_file, "r")
   if file then
     local types = file:read("*a")
@@ -68,16 +38,6 @@ M.types_output_buffer = function(file_name)
     end
   else
     vim.notify("Error: Unable to open the output file")
-  end
-end
-
-M.buffer_to_string = function(filetype)
-  if filetype == "json" then
-    local content = vim.api.nvim_buf_get_lines(0, 0, vim.api.nvim_buf_line_count(0), false)
-    return table.concat(content, "\n")
-  else
-    vim.notify("File is not json")
-    return
   end
 end
 

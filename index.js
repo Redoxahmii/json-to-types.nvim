@@ -14,7 +14,7 @@ function jsonIsValid(json) {
 function convertTypes() {
   const temp_path = "./test.txt";
   const file_read = fs.readFileSync(temp_path, "utf8");
-  const error = "Provide valid JSON";
+  const error = "Error: Provide valid JSON";
   if (!jsonIsValid(file_read)) {
     throw new Error(error);
   }
