@@ -46,7 +46,6 @@ M.write_types_buffer = function()
       if buffer_number == -1 then
         vim.api.nvim_command("botright vnew")
         buffer_number = vim.api.nvim_get_current_buf()
-        vim.notify(types[2])
         vim.api.nvim_buf_set_name(buffer_number, types[2])
         vim.api.nvim_set_option_value("filetype", "typescript", { buf = buffer_number })
       end

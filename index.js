@@ -28,5 +28,5 @@ function convertTypes() {
 try {
   convertTypes();
 } catch (error) {
-  console.log(error.message); // Log the error message
+  console.log(error.message);
 }
