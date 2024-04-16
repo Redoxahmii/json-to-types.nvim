@@ -1,5 +1,5 @@
 -- main module file
-local module = require("json-to-ts.module")
+local module = require("json-to-types.module")
 ---@class Config
 ---@field opt string Your config option
 local config = {}

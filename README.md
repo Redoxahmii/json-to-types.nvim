@@ -1,6 +1,7 @@
-# 🚬 json-to-ts.nvim
+# 🚬 json-to-types.nvim
 
-A plugin for lazy people who don't want to write typescript types by hand. This plugin will convert JSON to TypeScript types.
+A plugin for lazy people who don't want to write typescript types by hand. This plugin will convert JSON to types.
+Currently it only supports TypeScript but other language support will be added soon.
 
 ## 📋 Requirements
 
@@ -14,7 +15,7 @@ Install the plugin with your preferred package manager:
 
 ```lua
 {
-    "Redoxahmii/json-to-ts.nvim",
+    "Redoxahmii/json-to-types.nvim",
     build = "sh install.sh npm",
     keys = {
       {
@@ -35,7 +36,7 @@ Install the plugin with your preferred package manager:
 
 ## 🚀 Usage
 
-- Reason for appending `Types` before the file name is to avoid overwriting if there is an already `.ts` file in the same directory with the same name.
+- Reason for appending `Types-` before the file name is to avoid overwriting if there is an already `.ts` file in the same directory with the same name.
 - Use the command `:ConvertJSONtoTS` to convert the JSON to TypeScript types and save the file immediately.
 - Use this command `:ConvertJSONtoTSBuffer` to convert the JSON to TypeScript types and open them in a split buffer to check first before saving the file.
 - You can also make keybindings for the mentioned commands by referring to the method provided above.
@@ -43,4 +44,4 @@ Install the plugin with your preferred package manager:
 ## 👷 Features to come
 
 - [x] Create a read only buffer with the types.
-- [ ] Add the ability to add the types to the current buffer.
+- [ ] Support for other languages.

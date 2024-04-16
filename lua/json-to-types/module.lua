@@ -1,4 +1,4 @@
-local helper = require("json-to-ts.helper")
+local helper = require("json-to-types.helper")
 
 ---@class CustomModule
 local M = {}

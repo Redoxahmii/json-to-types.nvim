@@ -5,13 +5,13 @@ local M = {}
 -- local types_command = "node"
 --   .. " "
 --   .. home
---   .. "/.local/share/nvim/lazy/json-to-ts.nvim/index.js > "
+--   .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > "
 --   .. types_output_file
 --LOCAL LINK
 -- local types_command = "node"
 --     .. " "
 --     .. home
---     .. "/Code/Neovim/json-to-ts.nvim/index.js > "
+--     .. "/Code/Neovim/json-to-types.nvim/index.js > "
 --     .. types_output_file
 
 Error_message = "Provide valid JSON"
@@ -23,7 +23,7 @@ M.types_output = function(file_name)
   local types_command = "node"
     .. " "
     .. home
-    .. "/.local/share/nvim/lazy/json-to-ts.nvim/index.js > "
+    .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > "
     .. types_output_file
   os.execute(types_command)
 
@@ -52,7 +52,7 @@ M.types_output_buffer = function(file_name)
   local types_command = "node"
     .. " "
     .. home
-    .. "/.local/share/nvim/lazy/json-to-ts.nvim/index.js > "
+    .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > "
     .. types_output_file
   os.execute(types_command)
   local file = io.open(types_output_file, "r")
