@@ -6,8 +6,8 @@ M.executeTypesCommand = function(file_name)
   local base_name = vim.fn.fnamemodify(file_name, ":t:r")
   local types_output_file = "./" .. "Types-" .. base_name .. ".ts"
   -- INFO: LOCAL typescommand
-  local types_command = "node" .. " " .. home .. "/Code/Neovim/json-to-types.nvim/index.js > " .. types_output_file
-  -- local types_command = "node " .. home .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > " .. types_output_file
+  -- local types_command = "node" .. " " .. home .. "/Code/Neovim/json-to-types.nvim/index.js > " .. types_output_file
+  local types_command = "node " .. home .. "/.local/share/nvim/lazy/json-to-types.nvim/index.js > " .. types_output_file
   os.execute(types_command)
   return types_output_file
 end
