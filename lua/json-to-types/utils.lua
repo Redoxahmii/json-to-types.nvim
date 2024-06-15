@@ -44,15 +44,22 @@ M.executeTypesCommand = function(file_name, target_language)
   local base_name = vim.fn.fnamemodify(file_name, ":t:r")
   local file_info = get_file_info(target_language)
   local types_output_file = "./" .. "Types-" .. base_name .. "." .. file_info.extension
+  -- local types_command = "node "
+  --   .. home
+  --   .. "/Code/Neovim/json-to-types.nvim/quicktype.js "
+  --   .. target_language
+  --   .. " "
+  --   .. file_name
+  --   .. " > "
+  --   .. types_output_file
   local types_command = "node "
     .. home
-    .. "/Code/Neovim/json-to-types.nvim/quicktype.js "
+    .. "/.local/share/nvim/lazy/json-to-types.nvim/quicktype.js "
     .. target_language
     .. " "
     .. file_name
     .. " > "
     .. types_output_file
-  -- local types_command = "node " .. home .. "/.local/share/nvim/lazy/json-to-types.nvim/quicktype.js " .. target_language .. " " .. file_name .. " > " .. types_output_file
   os.execute(types_command)
   return types_output_file, file_info.filetype
 end
