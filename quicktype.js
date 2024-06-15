@@ -38,8 +38,6 @@ const supportedLanguages = [
   "rust",
   "python",
   "ruby",
-  "schema",
-  "graphql",
 ];
 
 async function generateTypes(language, jsonString) {

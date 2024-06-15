@@ -27,8 +27,8 @@ end
 M.write_types_buffer = function(target_language)
   local bufnr = vim.api.nvim_get_current_buf()
   local file_name = vim.api.nvim_buf_get_name(bufnr)
-  local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-  local text = utils.buffer_to_string(filetype)
+  local filetype1 = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+  local text = utils.buffer_to_string(filetype1)
   if not text then
     return
   end
@@ -38,6 +38,9 @@ M.write_types_buffer = function(target_language)
     file:write(text)
     file:close()
     local types = helper.types_output_buffer(file_name, target_language)
+    if not types then
+      return
+    end
     if string.find(types[1], Error_message) then
       vim.notify(Error_message)
       os.remove(file_path)
@@ -48,7 +51,7 @@ M.write_types_buffer = function(target_language)
         vim.api.nvim_command("botright vnew")
         buffer_number = vim.api.nvim_get_current_buf()
         vim.api.nvim_buf_set_name(buffer_number, types[2])
-        vim.api.nvim_set_option_value("filetype", "typescript", { buf = buffer_number })
+        vim.api.nvim_set_option_value("filetype", types[3], { buf = buffer_number })
       end
       local lines = vim.split(types[1], "\n")
       vim.api.nvim_buf_set_lines(buffer_number, 0, -1, false, lines)

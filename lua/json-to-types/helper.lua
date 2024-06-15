@@ -24,7 +24,8 @@ M.types_output = function(file_name, target_language)
 end
 
 M.types_output_buffer = function(file_name, target_language)
-  local types_output_file = utils.executeTypesCommand(file_name, target_language)
+  local types_output_file, filetype = utils.executeTypesCommand(file_name, target_language)
+  vim.notify(filetype)
   local file = io.open(types_output_file, "r")
   if file then
     local types = file:read("*a")
@@ -33,11 +34,10 @@ M.types_output_buffer = function(file_name, target_language)
     if string.find(types, escaped_error_message) then
       return { Error_message }
     else
-      return { types, types_output_file }
+      return { types, types_output_file, filetype }
     end
   else
     return { "Error: Unable to open the output file" }
   end
 end
-
 return M
