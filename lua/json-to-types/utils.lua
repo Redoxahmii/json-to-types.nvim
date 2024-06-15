@@ -2,7 +2,7 @@
 local M = {}
 
 local filetype_map = {
-  cjson = { extension = "json", filetype = "json" },
+  cjson = { extension = "c", filetype = "c" },
   ["c++"] = { extension = "cpp", filetype = "cpp" },
   cr = { extension = "cr", filetype = "crystal" },
   cs = { extension = "cs", filetype = "cs" },
