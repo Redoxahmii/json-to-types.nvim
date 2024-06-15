@@ -13,7 +13,6 @@ local filetype_map = {
   go = { extension = "go", filetype = "go" },
   haskell = { extension = "hs", filetype = "haskell" },
   java = { extension = "java", filetype = "java" },
-  js = { extension = "js", filetype = "javascript" },
   ["javascript-prop-types"] = { extension = "js", filetype = "javascript" },
   kotlin = { extension = "kt", filetype = "kotlin" },
   objc = { extension = "m", filetype = "objc" },
