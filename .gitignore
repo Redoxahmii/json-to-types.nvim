@@ -1,3 +1,4 @@
 vendor/plenary.nvim
 node_modules
 test-files
+package-lock.json
