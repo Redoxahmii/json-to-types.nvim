@@ -17,11 +17,15 @@ M.setup = function(args)
   M.config = vim.tbl_deep_extend("force", M.config, args or {})
 end
 
-M.convertTypes = function()
-  return module.write_types()
+M.convertTypes = function(type)
+  if type then
+    return module.write_types(type)
+  end
 end
-M.convertTypesBuffer = function()
-  return module.write_types_buffer()
+M.convertTypesBuffer = function(type)
+  if type then
+    return module.write_types_buffer(type)
+  end
 end
 
 return M
