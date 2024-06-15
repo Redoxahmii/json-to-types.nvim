@@ -18,10 +18,14 @@ M.setup = function(args)
 end
 
 M.convertTypes = function(type)
-  return module.write_types(type)
+  if type then
+    return module.write_types(type)
+  end
 end
 M.convertTypesBuffer = function(type)
-  return module.write_types_buffer(type)
+  if type then
+    return module.write_types_buffer(type)
+  end
 end
 
 return M

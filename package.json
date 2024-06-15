@@ -1,7 +1,7 @@
 {
   "name": "json-to-types.nvim",
   "version": "1.0.0",
-  "description": "A plugin to convert JSON objects to typescript types",
+  "description": "A plugin to convert JSON objects to types",
   "main": "index.js",
   "type": "module",
   "directories": {

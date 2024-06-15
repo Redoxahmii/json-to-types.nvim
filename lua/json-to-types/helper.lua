@@ -25,7 +25,6 @@ end
 
 M.types_output_buffer = function(file_name, target_language)
   local types_output_file, filetype = utils.executeTypesCommand(file_name, target_language)
-  vim.notify(filetype)
   local file = io.open(types_output_file, "r")
   if file then
     local types = file:read("*a")
