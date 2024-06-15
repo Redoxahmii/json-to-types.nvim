@@ -18,7 +18,6 @@ const supportedLanguages = [
   "go",
   "haskell",
   "java",
-  "js",
   "javascript-prop-types",
   "kotlin",
   "objc",
@@ -41,17 +40,12 @@ const supportedLanguages = [
 ];
 
 async function generateTypes(language, jsonString) {
-  // Check if the language is supported
   if (!supportedLanguages.includes(language)) {
     throw new Error(
       `Unsupported language: ${language}. Supported languages are: ${supportedLanguages.join(", ")}`,
     );
   }
-
-  // Set up quicktype input data
   const jsonInput = jsonInputForTargetLanguage(language);
-
-  // Add the JSON sample to the input data
   await jsonInput.addSource({
     name: "GeneratedType",
     samples: [jsonString],
@@ -59,8 +53,6 @@ async function generateTypes(language, jsonString) {
 
   const inputData = new InputData();
   inputData.addInput(jsonInput);
-
-  // Generate the types
   const result = await quicktype({
     inputData,
     lang: language,
@@ -71,8 +63,6 @@ async function generateTypes(language, jsonString) {
 
   return result.lines.join("\n");
 }
-
-// Usage example
 (async () => {
   const language = process.argv[2];
   const jsonFilePath = process.argv[3];
