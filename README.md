@@ -116,3 +116,4 @@ desc = "Convert JSON to TS in buffer",
 
 - [x] Create a read-only buffer with the types.
 - [x] Support for other languages.
+- [ ] Allow user to paste their API Link and get the types automatically.
