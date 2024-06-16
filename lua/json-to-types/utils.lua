@@ -39,7 +39,6 @@ local function get_file_info(language)
 end
 
 M.executeTypesCommand = function(file_name, target_language)
-  local home = os.getenv("HOME")
   local base_name = vim.fn.fnamemodify(file_name, ":t:r")
   local file_info = get_file_info(target_language)
   local types_output_file = "./" .. "Types-" .. base_name .. "." .. file_info.extension
@@ -52,7 +51,8 @@ M.executeTypesCommand = function(file_name, target_language)
   --   .. " > "
   --   .. types_output_file
   local types_command = "node --no-warnings "
-    .. vim.fn.stdpath('data') .. "/lazy/json-to-types.nvim/quicktype.js "
+    .. vim.fn.stdpath("data")
+    .. "/lazy/json-to-types.nvim/quicktype.js "
     .. target_language
     .. " "
     .. file_name
