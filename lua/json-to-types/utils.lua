@@ -51,9 +51,8 @@ M.executeTypesCommand = function(file_name, target_language)
   --   .. file_name
   --   .. " > "
   --   .. types_output_file
-  local types_command = "node "
-    .. home
-    .. "/.local/share/nvim/lazy/json-to-types.nvim/quicktype.js "
+  local types_command = "node --no-warnings "
+    .. vim.fn.stdpath('data') .. "/lazy/json-to-types.nvim/quicktype.js "
     .. target_language
     .. " "
     .. file_name
