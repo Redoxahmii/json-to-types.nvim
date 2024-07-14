@@ -15,7 +15,7 @@ M.types_output = function(file_name, target_language)
       return
     else
       vim.api.nvim_command("edit " .. types_output_file)
-      vim.notify("Types saved at " .. types_output_file)
+      -- vim.notify("Types saved at " .. types_output_file)
       return types
     end
   else
