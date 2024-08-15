@@ -15,7 +15,6 @@ M.types_output = function(file_name, target_language)
       return
     else
       vim.api.nvim_command("edit " .. types_output_file)
-      -- vim.notify("Types saved at " .. types_output_file)
       return types
     end
   else
@@ -36,7 +35,7 @@ M.types_output_buffer = function(file_name, target_language)
       return { types, types_output_file, filetype }
     end
   else
-    return { "Error: Unable to open the output file" }
+    vim.notify("Error: Unable to open the output file")
   end
 end
 return M
