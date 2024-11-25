@@ -1,5 +1,6 @@
 local json_to_types = require("json-to-types")
--- BUG: debug the error being thrown
+local utils = require("json-to-types.utils")
+
 vim.api.nvim_create_user_command("ConvertJSONtoLang", function(args)
   if args.args == "" then
     vim.notify("Please provide a language name", vim.log.levels.ERROR)
@@ -13,38 +14,7 @@ vim.api.nvim_create_user_command("ConvertJSONtoLang", function(args)
 end, {
   nargs = 1,
   complete = function()
-    return {
-      "cjson",
-      "c++",
-      "cr",
-      "cs",
-      "dart",
-      "elixir",
-      "elm",
-      "flow",
-      "go",
-      "haskell",
-      "java",
-      "javascript-prop-types",
-      "kotlin",
-      "objc",
-      "php",
-      "pike",
-      "py",
-      "rs",
-      "scala3",
-      "Smithy",
-      "swift",
-      "typescript",
-      "typescript-zod",
-      "typescript-effect-schema",
-      "javascript",
-      "cpp",
-      "csharp",
-      "rust",
-      "python",
-      "ruby",
-    }
+    return utils.language_map()
   end,
 })
 
@@ -61,37 +31,6 @@ vim.api.nvim_create_user_command("ConvertJSONtoLangBuffer", function(args)
 end, {
   nargs = 1,
   complete = function()
-    return {
-      "cjson",
-      "c++",
-      "cr",
-      "cs",
-      "dart",
-      "elixir",
-      "elm",
-      "flow",
-      "go",
-      "haskell",
-      "java",
-      "javascript-prop-types",
-      "kotlin",
-      "objc",
-      "php",
-      "pike",
-      "py",
-      "rs",
-      "scala3",
-      "Smithy",
-      "swift",
-      "typescript",
-      "typescript-zod",
-      "typescript-effect-schema",
-      "javascript",
-      "cpp",
-      "csharp",
-      "rust",
-      "python",
-      "ruby",
-    }
+    return utils.language_map()
   end,
 })

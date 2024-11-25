@@ -73,4 +73,37 @@ M.buffer_to_string = function(filetype)
   end
 end
 
+M.language_map = {
+  "cjson",
+  "c++",
+  "cr",
+  "cs",
+  "dart",
+  "elixir",
+  "elm",
+  "flow",
+  "go",
+  "haskell",
+  "java",
+  "javascript-prop-types",
+  "kotlin",
+  "objc",
+  "php",
+  "pike",
+  "py",
+  "rs",
+  "scala3",
+  "Smithy",
+  "swift",
+  "typescript",
+  "typescript-zod",
+  "typescript-effect-schema",
+  "javascript",
+  "cpp",
+  "csharp",
+  "rust",
+  "python",
+  "ruby",
+}
+
 return M
